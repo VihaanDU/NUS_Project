@@ -1,0 +1,98 @@
+// Reflection 6
+// Question 1 
+
+const LoL = list(list(1, 2), list(3, 4, 5, 6), null, list(7, 8, 9));
+const space = "-----";
+function flattten_list(xs) {
+
+    return accumulate(append, null, xs);
+}
+
+display("Flatten List");
+display(display_list(flattten_list(LoL)));
+display(space);
+
+
+//Quesion 2 
+//----------------------------------------------------
+
+const my_tree = list(1, list(2, list(3, 4), 5), list(6, 7));
+
+
+//Recursive version 
+function tree_sum_recursive(tree) {
+
+    return is_null(tree)
+        ? 0
+        : (is_list(head(tree))
+            ? tree_sum_recursive(head(tree))
+            : head(tree))
+        + tree_sum_recursive(tail(tree));
+
+}
+
+
+
+//Iterative version 
+
+function tree_sum_iterative(tree) {
+
+    const get_sum = (x, y) => (is_list(x) ? tree_sum_iterative(x) : x) + y;
+
+    return accumulate(get_sum, 0, tree);
+}
+
+
+display("Tree sum recursive:");
+display(tree_sum_recursive(my_tree));
+display(space);
+
+display("Tree sum iterative:");
+display(tree_sum_iterative(my_tree));
+display(space);
+
+//----------------------------------------------------
+
+
+//Question 3
+//----------------------------------------------------
+
+const numbers = list(1, 2, 3, 4);
+function my_map(f, xs) {
+    return accumulate((x, y) => pair(f(x), y), null, xs);
+}
+
+display("Map with accumulate function");
+display(my_map(x => x + 12, numbers));
+display(space);
+
+
+//----------------------------------------------------
+
+
+// Question 4 
+//----------------------------------------------------
+
+
+const list_of_duplicates = list(1, 2, 3, 4, 5, 6, 7);
+
+function remove_duplicates(lst) {
+    return accumulate((head, tail) => pair(head, filter(item => !equal(head, item), tail))
+        , null, lst);
+}
+
+//Removed accumualate function and rewrite with ternary operators
+function remove_duplicates_expanded(lst) {
+    return is_null(lst)
+        ? null
+        : pair(head(lst),
+            remove_duplicates(
+                filter(x => !equal(x, head(lst)), tail(lst))));
+}
+
+display("Remove duplicates");
+display(remove_duplicates(list_of_duplicates));
+display(space);
+
+
+//----------------------------------------------------
