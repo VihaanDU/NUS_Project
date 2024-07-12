@@ -1,0 +1,19 @@
+//-----------------------------coin_sound-----------------------------//
+import { make_sound, play, consecutively } from "sound";
+
+const main_ding_sound_wave = 
+    t => (math_sin(2 * math_PI * 1046.50 * t) 
+     + 0.5 * math_sin(2 * math_PI * 2093.00 * t)) * math_exp(-5 * t);
+
+const main_ding_sound = make_sound(main_ding_sound_wave, 0.1);
+
+const high_pitch_end_wave = 
+          t =>  (math_sin(2 * math_PI * 1440 * t) * math_exp(-5 * t) 
+         + 0.5 * math_sin(2 * math_PI * 2880 * t)) * math_exp(-5 * t); 
+
+const high_pitch_end = make_sound(high_pitch_end_wave, 0.2);
+
+const coin_sound = consecutively(list(main_ding_sound, high_pitch_end));
+
+play(coin_sound);
+//--------------------------------------------------------------------//
