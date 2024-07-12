@@ -1,0 +1,12 @@
+//------------------------coin_sound-------------------------------//
+import { make_sound, play } from "sound";
+
+const coin_sound_wave = 
+    t => (math_sin(2 * math_PI * 1000 * t) 
+    + 0.5 * math_sin(2 * math_PI * 500 * t) 
+    + 0.25 * math_sin(2 * math_PI * 3000 * t)) * math_exp(-5 * t);
+    
+    const coin_sound = make_sound(coin_sound_wave, 0.6);
+
+play(coin_sound);
+//----------------------------------------------------------------//
