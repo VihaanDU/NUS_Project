@@ -1,0 +1,69 @@
+import { bell, play, silence_sound, consecutively} from 'sound';
+const t = 0.4;
+const rest = silence_sound(t);
+
+const G_2 = bell(43, t);const Ab2 = bell(44, t);
+const A_2 = bell(45, t);const Bb2 = bell(46, t);
+const B_2 = bell(47, t);
+
+const C_3 = bell(48, t);const Db3 = bell(49, t);
+const D_3 = bell(50, t);const Eb3 = bell(51, t);
+const E_3 = bell(52, t);
+const F_3 = bell(53, t);const Gb3 = bell(54, t);
+const G_3 = bell(55, t);const Ab3 = bell(56, t);
+const A_3 = bell(57, t);const Bb3 = bell(58, t);
+const B_3 = bell(59, t);
+
+const C_4 = bell(60, t);const Db4 = bell(61, t);
+const D_4 = bell(62, t);const Eb4 = bell(63, t);
+const E_4 = bell(64, t);
+const F_4 = bell(65, t);const Gb4 = bell(66, t);
+const G_4 = bell(67, t);const Ab4 = bell(68, t);
+const A_4 = bell(69, t);const Bb4 = bell(70, t);
+const B_4 = bell(71, t);
+
+const C_5 = bell(72, t);const Db5 = bell(73, t);
+const D_5 = bell(74, t);const Eb5 = bell(75, t);
+const E_5 = bell(76, t);
+const F_5 = bell(77, t);const Gb5 = bell(78, t);
+const G_5 = bell(79, t);const Ab5 = bell(80, t);
+const A_5 = bell(81, t);const Bb5 = bell(82, t);
+const B_5 = bell(83, t);
+
+const C_6 = bell(84, t);const Db6 = bell(85, t);
+const D_6 = bell(86, t);const Eb6 = bell(87, t);
+const E_6 = bell(88, t);
+const F_6 = bell(89, t);const Gb6 = bell(90, t);
+const G_6 = bell(91, t);const Ab6 = bell(92, t);
+const A_6 = bell(93, t);const Bb6 = bell(94, t);
+const B_6 = bell(95, t);
+
+const t1 = 0.8;
+const B_4_ = bell(71, t1);const G_4_ = bell(67, t1);
+const C_5_ = bell(72, t1);const Db5_ = bell(73, t1);
+const D_5_ = bell(74, t1);const Eb5_ = bell(75, t1);
+const E_5_ = bell(76, t1);const Bb4_ = bell(70, t1);
+const F_5_ = bell(77, t1);const Gb5_ = bell(78, t1);
+const G_5_ = bell(79, t1);const Ab5_ = bell(80, t1);
+const A_5_ = bell(81, t1);const Bb5_ = bell(82, t1);
+const B_5_ = bell(83, t1);const Bb3_ = bell(58, t1);
+
+const melodyA = list(rest, Eb5, Bb5, F_5_, G_5, rest, 
+                     Ab5, G_5, F_5, Eb5, Bb4_, G_4_, 
+                     Ab4, G_5, D_5_, rest, Eb5,
+                     Bb4, G_4, Ab4, Bb4, rest,
+                     C_5, Bb5, D_5_, Eb5,
+                     Bb4, F_5_, E_5, G_5_,
+                     Ab5, G_5, Eb5, F_5, Eb5_);
+
+const melodyB = list(Eb3, G_3, D_3, F_3, rest, rest, 
+                     Ab2, rest, C_3, rest, G_2, Bb2, rest,
+                     Ab2, C_3, Bb2, Bb3_, rest,
+                     Bb2, G_2, Ab2, Bb2, rest,
+                     Ab2, C_3, Bb2, D_3,
+                     G_2, Bb2, D_3, C_3, E_3, rest,
+                     Ab2, C_3, Bb2, Bb3_, Eb3, Ab2, G_2);
+
+
+play(consecutively(melodyA));
+play(consecutively(melodyB));
