@@ -1,0 +1,16 @@
+//-----------------------damage_sound---------------------------//
+import {make_sound, play, consecutively} from "sound";
+
+const low_sound_wave = 
+    t =>  (math_sin(2 * math_PI * 220 * t) * math_exp(-5 * t) 
+    + 0.5 * math_sin(2 * math_PI * 440 * t)) * math_exp(-5 * t); 
+const low_sound = make_sound(low_sound_wave, 0.2);
+const high_pitch_end_wave = 
+          t =>  (math_sin(2 * math_PI * 320 * t) * math_exp(-5 * t) 
+         + 0.5 * math_sin(2 * math_PI * 880 * t)) * math_exp(-5 * t); 
+const high_pitch_end = make_sound(high_pitch_end_wave, 0.1);
+
+const damage_sound = consecutively(list(high_pitch_end, low_sound));
+
+play(damage_sound);
+// //--------------------------------------------------------------//
