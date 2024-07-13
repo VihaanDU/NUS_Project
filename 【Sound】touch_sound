@@ -1,0 +1,9 @@
+import {make_sound, play, consecutively} from "sound";
+
+const touch_sound_wave = 
+    t =>  (math_sin(2 * math_PI * 240 * t) * math_exp(-5 * t) 
+    + 0.5 * math_sin(2 * math_PI * 580 * t)) * math_exp(- 5 * t); 
+
+const touch_sound = make_sound(touch_sound_wave, 0.5);
+
+play(touch_sound);
