@@ -1,0 +1,13 @@
+import { bell, play, silence_sound, consecutively, stop, cello} from 'sound';
+const T = 0.1;
+const T1 = 0.2;
+
+const B4 = cello(71, T); const F4 = cello(65, T); const D4 = cello(62, T);
+const E4_ = cello(64, T1); const C4 = cello(60, T); const E4 = cello(64, T);
+const G4_ = cello(67, T1); const G4 = cello(67, T); const A4 = cello(69, T); 
+const C5_ = cello(72, T1); const D5_ = cello(74, T1); const E5_ = cello(76, T1);
+
+const winner_sound = list( C4, E4, G4_, C5_, A4, G4, A4, E4,
+                  C4, G4_, E4, C4, C5_, B4, A4, G4_, F4, C5_, E5_, D5_);
+
+play(consecutively(winner_sound));
