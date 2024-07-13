@@ -1,0 +1,19 @@
+import { bell, play, silence_sound, consecutively, stop, cello} from 'sound';
+const T = 0.1;
+const T1 = 0.2;
+const C2 = bell(36, T);
+const D2 = bell(39, T);
+const G2 = bell(43, T); 
+const A2 = bell(45, T); 
+const B2 = bell(47, T);
+
+const C3 = bell(48, T); 
+const D3 = bell(50, T);
+const E3 = bell(52, T);
+const F3 = bell(53, T);
+const G3 = bell(55, T); 
+const A3 = bell(57, T); 
+const B3 = bell(59, T);
+
+const failure_music = list( D3, G3, B2, G2, D2, C2, G2, B2, G3, D3, C2);
+play(consecutively(failure_music));
