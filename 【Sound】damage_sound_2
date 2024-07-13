@@ -1,0 +1,10 @@
+//-----------------------damage_sound---------------------------//
+import { make_sound, play } from "sound";
+const damage_sound_wave = 
+    t => (math_sin(2 * math_PI * 150 * t) * math_exp(-8 * t) 
+    + 0.5 * math_sin(2 * math_PI * 300 * t) * math_exp(-8 * t));
+
+const damage_sound = make_sound(damage_sound_wave, 0.4);
+
+play(damage_sound);
+// //--------------------------------------------------------------//
